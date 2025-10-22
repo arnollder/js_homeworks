@@ -149,6 +149,26 @@ function checkDayOfWeek(num) {
 // 5. Сделайте функцию, которая параметрами принимает 2 числа.
 // Если эти числа равны - пусть функция вернет true, а если не
 // равны - false.
+
+// Не уверен, что не перемудрил, поэтому реализовал с проверкой на число (isEqual) и без (mainEqual)
+
+const mainEqual = (a, b) => (a === b ? true : false);
+console.log(mainEqual(1, '1'));
+
+{
+    const isEqual = function (a, b) {
+        if (checkNums(a, b)) {
+            return mainEqual(a, b);
+        } else return errorMessage;
+    };
+    console.log(isEqual(1, '2'));
+}
+
+{
+    const isEqual = (a, b) => (checkNums(a, b) ? mainEqual(a, b) : errorMessage);
+    console.log(isEqual(1, '2'));
+}
+
 // 6. Сделайте функцию, которая параметрами принимает 2 числа.
 // Если их сумма больше 10 - пусть вернет true, а если нет то -
 // false.
