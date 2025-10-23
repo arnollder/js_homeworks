@@ -12,7 +12,6 @@ console.log("Работа с if-else");
 
 console.log("Задача 1");
 
-// console.time()
 {
     let a = 0;
     if (a === 0) {
@@ -22,14 +21,17 @@ console.log("Задача 1");
     }
     console.log(a);
 }
-// console.timeEnd()
 
-// console.time()
-{
-    const a = 0 === 0 ? isTrue : isFalse;
-    console.log(a);
-}
-// console.timeEnd()
+// {
+//     const a = 0 === 0 ? isTrue : isFalse;
+//     console.log(a);
+// }
+
+// {
+//     const userValue = +prompt("Введи число,", 0);
+//     const a = userValue === 0 ? isTrue : isFalse;
+//     alert(a);
+// }
 
 // 2. Если переменная a больше нуля, то выведите 'Верно', иначе выведите 'Неверно'.
 // Проверьте работу скрипта при a, равном 1, 0, -3.
@@ -47,7 +49,7 @@ console.log("Задача 2");
 }
 
 {
-    const a = 0 > 0 ? isTrue : isFalse;
+    let a = 0 > 0 ? isTrue : isFalse;
     console.log(a);
 }
 
@@ -67,7 +69,7 @@ console.log("Задача 3");
 }
 
 {
-    const a = 0 < 0 ? isTrue : isFalse;
+    let a = 0 < 0 ? isTrue : isFalse;
     console.log(a);
 }
 
@@ -87,7 +89,7 @@ console.log("Задача 4");
 }
 
 {
-    const a = 0 >= 0 ? isTrue : isFalse;
+    let a = 0 >= 0 ? isTrue : isFalse;
     console.log(a);
 }
 
@@ -107,7 +109,7 @@ console.log("Задача 5");
 }
 
 {
-    const a = 0 <= 0 ? isTrue : isFalse;
+    let a = 0 <= 0 ? isTrue : isFalse;
     console.log(a);
 }
 
@@ -127,7 +129,7 @@ console.log("Задача 6");
 }
 
 {
-    const a = 0 != 0 ? isTrue : isFalse;
+    let a = 0 != 0 ? isTrue : isFalse;
     console.log(a);
 }
 
@@ -147,7 +149,7 @@ console.log("Задача 7");
 }
 
 {
-    const a = "test" === "test" ? isTrue : isFalse;
+    let a = "test" === "test" ? isTrue : isFalse;
     console.log(a);
 }
 
@@ -167,7 +169,7 @@ console.log("Задача 8");
 }
 
 {
-    const a = "1" === "1" ? isTrue : isFalse;
+    let a = "1" === "1" ? isTrue : isFalse;
     console.log(a);
 }
 
@@ -181,7 +183,7 @@ console.log("Работа с логическими переменными");
 console.log("Задача 1");
 
 {
-    const test = true ? isTrue : isFalse;
+    let test = true ? isTrue : isFalse;
     console.log(test);
 }
 
@@ -201,7 +203,7 @@ console.log("Задача 1");
 console.log("Задача 2");
 
 {
-    const test = false != true ? isTrue : isFalse;
+    let test = false != true ? isTrue : isFalse;
     console.log(test);
 }
 
@@ -227,7 +229,7 @@ console.log("Задача 1");
 // console.time();
 {
     const a = 2;
-    const result = a > 0 && a < 5 ? isTrue : isFalse;
+    let result = a > 0 && a < 5 ? isTrue : isFalse;
     console.log(result);
 }
 // console.timeEnd();

@@ -73,21 +73,21 @@ function checkDayOfWeek(num) {
 // ==========================================================
 
 {
-    function sum(a, b) {
+    function sum(a = 0, b = 0) {
         return checkNums(a, b) ? a + b : errorMessage;
     }
     console.log(sum(1, 9));
 }
 
 {
-    const sum = function (a, b) {
+    const sum = function (a = 0, b = 0) {
         return checkNums(a, b) ? a + b : errorMessage;
     };
     console.log(sum(1, 9));
 }
 
 {
-    const sum = (a, b) => (checkNums(a, b) ? a + b : errorMessage);
+    const sum = (a = 0, b = 0) => (checkNums(a, b) ? a + b : errorMessage);
     console.log(sum(1, 9));
 }
 
@@ -146,45 +146,134 @@ function checkDayOfWeek(num) {
     console.log(dayOfWeek(6));
 }
 
+// =============================================================
 // 5. Сделайте функцию, которая параметрами принимает 2 числа.
 // Если эти числа равны - пусть функция вернет true, а если не
 // равны - false.
+// =============================================================
 
 // Не уверен, что не перемудрил, поэтому реализовал с проверкой на число (isEqual) и без (mainEqual)
 
-const mainEqual = (a, b) => (a === b ? true : false);
-console.log(mainEqual(1, '1'));
+const mainEqual = (a = 0, b = 0) => (a === b ? true : false);
+console.log(mainEqual(1, "1"));
 
 {
-    const isEqual = function (a, b) {
+    const isEqual = function (a = 0, b = 0) {
         if (checkNums(a, b)) {
             return mainEqual(a, b);
         } else return errorMessage;
     };
-    console.log(isEqual(1, '2'));
+    console.log(isEqual(1, "2"));
 }
 
 {
-    const isEqual = (a, b) => (checkNums(a, b) ? mainEqual(a, b) : errorMessage);
-    console.log(isEqual(1, '2'));
+    const isEqual = (a = 0, b = 0) => (checkNums(a, b) ? mainEqual(a, b) : errorMessage);
+    console.log(isEqual(1, "2"));
 }
 
+
+// =============================================================
 // 6. Сделайте функцию, которая параметрами принимает 2 числа.
 // Если их сумма больше 10 - пусть вернет true, а если нет то -
 // false.
+// =============================================================
+
+{
+    const comparison = (a = 0, b = 0) => (a + b > 10 ? true : false);
+    console.log(comparison(3, 3));
+}
+
+{
+    const comparison = function (a = 0, b = 0) {
+        return a + b > 10 ? true : false;
+    };
+    console.log(comparison(3, 3));
+}
+
+// =============================================================
 // 7. Сделайте функцию, которая параметром принимает число и
 // проверяет - отрицательное оно или нет. Если отрицательное -
 // пусть функция вернет true, а если нет - false.
+// =============================================================
+
+{
+    const isNegative = function (num) {
+        return num < 0 ? true : false;
+    };
+    console.log(isNegative(3));
+}
+
+{
+    const isNegative = (num) => (num >= 0 ? true : false);
+    console.log(isNegative(3));
+}
+
+// =============================================================
 // 8. Сделайте функцию isNumberInRange, которая параметром
 // принимает число и проверяет, что оно больше нуля и меньше
 // 10. Если это так - пусть функция возвращает true, если не так -
 // false.
+// =============================================================
+
+{
+    const isNumberInRange = (num) => (num > 0 && num < 10 ? true : false);
+    console.log(isNumberInRange(0));
+}
+
+{
+    const isNumberInRange = function (num) {
+        return num > 0 && num < 10 ? true : false;
+    };
+    console.log(isNumberInRange(9));
+}
+
+// =============================================================
 // 9. *Сделайте функцию getDigitsSum (digit - это цифра), которая
 // параметром принимает целое число и возвращает сумму его
 // цифр.
-// 10. *Найдите все года от 1 до 2020, сумма цифр которых равна
-// 13. Для этого используйте вспомогательную функцию
-// getDigitsSum из предыдущей задачи.
+// =============================================================
+
+// с помощью остатка от деления на 10
+
+const getDigitsSum = function (digit = 123, sum = 0) {
+    while (digit != 0) {
+        sumDigit = digit % 10;
+        digit = (digit - sumDigit) / 10;
+        sum += sumDigit;
+    }
+    return sum;
+};
+console.log(getDigitsSum(11111));
+
+// преобразование в строку и обращение по индексу
+{
+    const getDigitsSum = function (digit, sum = 0) {
+        digit = String(digit);
+        for (value in digit) {
+            sum += +digit[value];
+        }
+        return sum;
+    };
+    console.log(getDigitsSum(123));
+}
+
+// методы мы не проходили, но с ними чуть проще
+
+{
+    const getDigitsSum = function (digit = 123, sum = 0) {
+        while (digit) {
+            sum += digit % 10;
+            digit = Math.floor(digit / 10);
+        }
+        return sum;
+    };
+    console.log(getDigitsSum(333));
+}
+
+// 10. *Найдите все года от 1 до 2020, сумма цифр которых равна 13. 
+// Для этого используйте вспомогательную функцию getDigitsSum 
+// из предыдущей задачи.
+
 // 11. Сделайте функцию isEven() (even - это четный), которая
 // параметром принимает целое число и проверяет: четное оно
 // или нет. Если четное - пусть функция возвращает true, если
