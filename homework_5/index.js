@@ -236,14 +236,14 @@ console.log(mainEqual(1, "1"));
 // с помощью остатка от деления на 10
 
 const getDigitsSum = function (digit = 123, sum = 0) {
-    while (digit != 0) {
+    while (digit) {
         sumDigit = digit % 10;
         digit = (digit - sumDigit) / 10;
         sum += sumDigit;
     }
     return sum;
 };
-console.log(getDigitsSum(11111));
+console.log(getDigitsSum(22222));
 
 // преобразование в строку и обращение по индексу
 {
