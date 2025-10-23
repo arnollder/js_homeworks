@@ -171,7 +171,6 @@ console.log(mainEqual(1, "1"));
     console.log(isEqual(1, "2"));
 }
 
-
 // =============================================================
 // 6. Сделайте функцию, которая параметрами принимает 2 числа.
 // Если их сумма больше 10 - пусть вернет true, а если нет то -
@@ -270,9 +269,20 @@ console.log(getDigitsSum(22222));
     console.log(getDigitsSum(333));
 }
 
-// 10. *Найдите все года от 1 до 2020, сумма цифр которых равна 13. 
-// Для этого используйте вспомогательную функцию getDigitsSum 
+// 10. *Найдите все года от 1 до 2020, сумма цифр которых равна 13.
+// Для этого используйте вспомогательную функцию getDigitsSum
 // из предыдущей задачи.
+
+{
+    const yearSumThirteen = function (a, b) {
+        let yearSumThirteenList = [];
+        for (i = a; i <= b; i++) {
+            getDigitsSum(i) === 13 ? yearSumThirteenList.push(i) : false;
+        }
+        return yearSumThirteenList;
+    };
+    console.log(yearSumThirteen(1, 2020));
+}
 
 // 11. Сделайте функцию isEven() (even - это четный), которая
 // параметром принимает целое число и проверяет: четное оно
