@@ -295,16 +295,20 @@ console.log(getDigitsSum(22222));
 
 // Метод остатка от деления на 2
 {
+    // console.time(1)
     const isEven = (num) => (num % 2 === 0 ? true : false);
     console.log(isEven(112));
+    // console.timeEnd(2)
 }
 
 // С помощью побитового оператора.
 // (если честно, так и не понял до конца, как именно это работает, но этот способ
 // гораздо быстрее предыдущего, поэтому просто оставлю это здесь)
 {
+    // console.time(2)
     const isEven = (num) => ((num & 1) === 0 ? true : false);
     console.log(isEven(111));
+    // console.timeEnd(2)
 }
 
 // ==========================================================
@@ -324,6 +328,46 @@ console.log(getDigitsSum(22222));
     console.log(untilTheEnd(1111111111));
 }
 
+// ==========================================================
 // 13. * Напишите стрелочную функцию, которая будет
 // возвращать true если строка является палиндромом и false в
 // противном случае.
+// ==========================================================
+
+// Для реализации основной функции isPalindrome я написал
+//  две вспомогательные: delSpace и stringRevers
+
+// функция для удаления пробелов из строки
+const delSpace = function (string) {
+    let result = "";
+    for (i of string) {
+        i != " " ? (result += i) : false;
+    }
+    return result;
+};
+
+// функция для реверса строки
+const stringRevers = function (string) {
+    let strRevers = "";
+    string = delSpace(string);
+    for (let i = string.length - 1; i >= 0; i--) {
+        strRevers += string[i];
+    }
+    return strRevers;
+};
+
+// функция проверки на палиндром
+{
+    // console.time(1)
+    const isPalindrome = (string) => (delSpace(string) === stringRevers(string) ? true : false);
+    console.log(isPalindrome("nan an anan"));
+    // console.timeEnd(1)
+}
+
+// Так тоже можно. Тяжелее к восприятию, но выполняется в 1,5 раза быстрее
+{
+    // console.time(2)
+    const isPalindrome = (string) => (delSpace(string) === delSpace(string).split('').reverse().join('') ? true : false);
+    console.log(isPalindrome("nan an anan"));
+    // console.timeEnd(2)
+}
