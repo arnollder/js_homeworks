@@ -337,19 +337,23 @@ console.log(getDigitsSum(22222));
 // Для реализации основной функции isPalindrome я написал
 //  две вспомогательные: delSpace и stringRevers
 
-// функция для удаления пробелов из строки
-const delSpace = function (string) {
+// функция для приведения к нижнему регистру
+
+const lowerCase = string => string.toLowerCase() 
+
+// функция для удаления нечитаемых символов (знаков препинания и пробелов) из строки
+const clearString = function (string) {
     let result = "";
     for (i of string) {
         i != " " ? (result += i) : false;
     }
-    return result;
+    return lowerCase(result).replace(/[^\w\s]|_/g, "");
 };
 
 // функция для реверса строки
 const stringRevers = function (string) {
     let strRevers = "";
-    string = delSpace(string);
+    string = clearString(string);
     for (let i = string.length - 1; i >= 0; i--) {
         strRevers += string[i];
     }
@@ -359,15 +363,22 @@ const stringRevers = function (string) {
 // функция проверки на палиндром
 {
     // console.time(1)
-    const isPalindrome = (string) => (delSpace(string) === stringRevers(string) ? true : false);
-    console.log(isPalindrome("nan an anan"));
+    const isPalindrome = (string) => (clearString(string) === stringRevers(string) ? true : false);
+    console.log(isPalindrome("nan, An Anan"));
     // console.timeEnd(1)
 }
 
 // Так тоже можно. Тяжелее к восприятию, но выполняется в 1,5 раза быстрее
 {
     // console.time(2)
-    const isPalindrome = (string) => (delSpace(string) === delSpace(string).split('').reverse().join('') ? true : false);
-    console.log(isPalindrome("nan an anan"));
+    let str = "Nan an anan";
+    const isPalindrome = (string) =>
+        clearString(string).toLowerCase() ===
+        clearString(string).split("").reverse().join("").toLowerCase()
+            ? true
+            : false;
+    console.log(isPalindrome("Nan an an an"));
     // console.timeEnd(2)
+
+    console.log(str.replace(/[^\w\s]|_/g, ""));
 }
