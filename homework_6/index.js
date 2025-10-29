@@ -3,16 +3,41 @@
 // stringToArray(str), которая преобразует строку в массив слов.
 // =============================================================
 
-{const stringToArray = (str) => str.split(' ')
-console.log(stringToArray('новый массив'))}
+// метод split
+{
+    const stringToArray = (str) => str.split(" ");
+    console.log(stringToArray("новый массив"));
+}
+
+// Цикл for
+{
+    const stringToArray = (str) => {
+        let targetArray = [];
+        let tempArray = [];
+        let tempStr = "";
+    
+        for (i of str) {
+            if (i != " ") {
+                tempArray = [...tempArray, i];
+                tempStr = tempArray.join("");
+            } else {
+                targetArray = [...targetArray, tempStr];
+                tempStr = "";
+                tempArray = [];
+            }
+        }
+        targetArray = [...targetArray, tempStr];
+    
+        return targetArray;
+    };
+    console.log(stringToArray("новый массив"));
+}
 
 // =============================================================
 // 2. Напишите функцию deleteCharacters(str, length), которая
 // возвращает подстроку, состоящую из указанного количества
 // символов.
 // =============================================================
-
-
 
 // =============================================================
 // 3. Напишите функцию insertDash(str), которая принимает строку
