@@ -15,7 +15,7 @@
         let targetArray = [];
         let tempArray = [];
         let tempStr = "";
-    
+
         for (i of str) {
             if (i != " ") {
                 tempArray = [...tempArray, i];
@@ -27,7 +27,7 @@
             }
         }
         targetArray = [...targetArray, tempStr];
-    
+
         return targetArray;
     };
     console.log(stringToArray("новый массив"));
@@ -38,6 +38,11 @@
 // возвращает подстроку, состоящую из указанного количества
 // символов.
 // =============================================================
+
+{
+    const deleteCharacters = (str, length) => str.slice(0, length);
+    console.log(deleteCharacters("Тестовая строка", 4));
+}
 
 // =============================================================
 // 3. Напишите функцию insertDash(str), которая принимает строку
