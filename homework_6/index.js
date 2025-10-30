@@ -52,12 +52,12 @@
 // =============================================================
 
 {
-    const insertDash = str => {
+    const insertDash = (str) => {
         const regex = new RegExp(/\s/g);
-        return str.toUpperCase().replace(regex, " - ")
-    }
-    
-    console.log(insertDash("Разделяем слова с помощью тире"))
+        return str.toUpperCase().replace(regex, " - ");
+    };
+
+    console.log(insertDash("Разделяем слова с помощью тире"));
 }
 
 // =============================================================
@@ -65,6 +65,14 @@
 // аргумента и преобразует регистр первого символа строки из
 // нижнего регистра в верхний.
 // =============================================================
+
+{
+    const firstSymbToUpperCase = (str) => {
+        return str[0].toUpperCase() + str.substring(1, Infinity)
+    }
+    
+    console.log(firstSymbToUpperCase("первый символ в верхнем регистре"));
+}
 
 // =============================================================
 // 5. Напишите функцию capitalize(str), которая возвращает строку,
