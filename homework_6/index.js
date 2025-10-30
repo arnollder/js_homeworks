@@ -4,10 +4,9 @@
 // =============================================================
 
 // метод split
-{
-    const stringToArray = (str) => str.split(" ");
-    console.log(stringToArray("новый массив"));
-}
+
+const stringToArray = (str) => str.split(" ");
+console.log(stringToArray("новый массив"));
 
 // Цикл for
 {
@@ -67,28 +66,50 @@
 // =============================================================
 
 // Обращение по индексу, метод substring и конкатенация
-{
-    const firstSymbToUpperCase = (str) => {
-        return str[0].toUpperCase() + str.slice(1) //str.substring(1, Infinity)
-    }
-    
-    console.log(firstSymbToUpperCase("первый символ в верхнем регистре"));
-}
+
+const firstSymbToUpperCase = (str) => {
+    return str[0].toUpperCase() + str.slice(1); //str.substring(1, Infinity)
+};
+
+console.log(firstSymbToUpperCase("первый символ в верхнем регистре"));
+
 
 // Через регулярное выражение
 {
     const firstSymbToUpperCase = (str) => {
-        return str.replace((/^./), firstSymb => firstSymb.toUpperCase())
-    }
-    console.log(firstSymbToUpperCase(("первый символ в верхнем регистре")))
+        return str.replace(/^./, (firstSymb) => firstSymb.toUpperCase());
+    };
+    console.log(firstSymbToUpperCase("первый символ в верхнем регистре"));
 }
 // =============================================================
 // 5. Напишите функцию capitalize(str), которая возвращает строку,
 // в которой каждое слово начинается с заглавной буквы.
 // =============================================================
 
+// Работа с массивом и метод .join()
 const capitalize = (str) => {
+    let tempList = []
+    strList = stringToArray(str);
+    for (word of strList) {
+        tempList.push(firstSymbToUpperCase(word))
+    }
+    return tempList.join(' ')
+};
 
+console.log(capitalize('каждое слово с заглавной буквы'))
+
+// Работа со строкой
+{
+    const capitalize = (str) => {
+    let newStr = '';
+    strList = stringToArray(str);
+    for (word of strList) {
+        newStr = newStr + firstSymbToUpperCase(word) + ' '
+    }
+    return newStr
+};
+
+console.log(capitalize('каждое слово с заглавной буквы'))
 }
 
 // =============================================================
