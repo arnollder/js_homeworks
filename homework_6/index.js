@@ -68,28 +68,28 @@
 
 // Обращение по индексу, метод substring и конкатенация
 {
-    console.time()
     const firstSymbToUpperCase = (str) => {
-        return str[0].toUpperCase() + str.substring(1, Infinity)
+        return str[0].toUpperCase() + str.slice(1) //str.substring(1, Infinity)
     }
     
     console.log(firstSymbToUpperCase("первый символ в верхнем регистре"));
-    console.timeEnd()
 }
 
 // Через регулярное выражение
 {
-    console.time()
     const firstSymbToUpperCase = (str) => {
         return str.replace((/^./), firstSymb => firstSymb.toUpperCase())
     }
     console.log(firstSymbToUpperCase(("первый символ в верхнем регистре")))
-    console.timeEnd()
 }
 // =============================================================
 // 5. Напишите функцию capitalize(str), которая возвращает строку,
 // в которой каждое слово начинается с заглавной буквы.
 // =============================================================
+
+const capitalize = (str) => {
+
+}
 
 // =============================================================
 // 6. Напишите функцию changeRegister(str), которая принимает в
