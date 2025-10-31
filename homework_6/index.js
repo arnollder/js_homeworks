@@ -73,7 +73,6 @@ const firstSymbToUpperCase = (str) => {
 
 console.log(firstSymbToUpperCase("первый символ в верхнем регистре"));
 
-
 // Через регулярное выражение
 {
     const firstSymbToUpperCase = (str) => {
@@ -88,28 +87,28 @@ console.log(firstSymbToUpperCase("первый символ в верхнем р
 
 // Работа с массивом и метод .join()
 const capitalize = (str) => {
-    let tempList = []
+    let tempList = [];
     strList = stringToArray(str);
     for (word of strList) {
-        tempList.push(firstSymbToUpperCase(word))
+        tempList.push(firstSymbToUpperCase(word));
     }
-    return tempList.join(' ')
+    return tempList.join(" ");
 };
 
-console.log(capitalize('каждое слово с заглавной буквы'))
+console.log(capitalize("каждое слово с заглавной буквы"));
 
 // Работа со строкой
 {
     const capitalize = (str) => {
-    let newStr = '';
-    strList = stringToArray(str);
-    for (word of strList) {
-        newStr = newStr + firstSymbToUpperCase(word) + ' '
-    }
-    return newStr
-};
+        let newStr = "";
+        strList = stringToArray(str);
+        for (word of strList) {
+            newStr = newStr + firstSymbToUpperCase(word) + " ";
+        }
+        return newStr;
+    };
 
-console.log(capitalize('каждое слово с заглавной буквы'))
+    console.log(capitalize("каждое слово с заглавной буквы"));
 }
 
 // =============================================================
@@ -119,6 +118,16 @@ console.log(capitalize('каждое слово с заглавной буквы
 // «КаЖдЫй ОхОтНиК», то на выходе должно быть «кАжДыЙ
 // оХоТнИк».
 // =============================================================
+
+// С помощью методов
+changeRegister = (str) => {
+    result = [];
+    for (i of str) {
+        i === i.toUpperCase() ? result.push(i.toLowerCase()) : result.push(i.toUpperCase());
+    }
+    return result.join("");
+};
+console.log(changeRegister("КаЖдЫй ОхОтНиК"));
 
 // =============================================================
 // 7. Напишите функцию removeChar(str), которая возвращает
