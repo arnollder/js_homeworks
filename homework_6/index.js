@@ -151,6 +151,24 @@ console.log(capitalize("каждое слово с заглавной буквы
     console.log(changeRegister("КаЖдЫй ОхОтНиК"));
 }
 
+// Регулярные выражения
+{
+    // чекаем регистр
+    const isUpperCase = (char) => {
+        const regex = new RegExp(/\p{Lu}/u);
+        return regex.test(char);
+    };
+    // основная функция
+    const changeRegister = (str) => {
+        let result = [];
+        for (char of str) {
+            isUpperCase(char) ? result.push(char.toLowerCase()) : result.push(char.toUpperCase());
+        }
+        return result.join("");
+    };
+    console.log(changeRegister("КаЖдЫй ОхОтНиК eVeRy HuNtEr"));
+}
+
 // =============================================================
 // 7. Напишите функцию removeChar(str), которая возвращает
 // строку, очищенную от всех не буквенно-цифровых символов.
