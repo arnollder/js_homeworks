@@ -174,6 +174,21 @@ console.log(capitalize("каждое слово с заглавной буквы
 // строку, очищенную от всех не буквенно-цифровых символов.
 // =============================================================
 
+const checkChar = char => {
+    const regex = new RegExp(/^[\p{L}\p{N}]/u)
+    console.log(regex.test(char))
+    return regex.test(char)
+}
+
+const removeChar = (str) => {
+    let result = []
+    for (char of str) {
+        checkChar(char) ? result.push(char) : false
+    }
+    return result.join('')
+}
+console.log(removeChar('Эта_строка_о-ч-и-щ!е???на от $$$вССсего-лишнего..152.'))
+
 // =============================================================
 // 8. Напишите функцию zeros(num, len), которая дополняет нулями
 // до указанной длины числовое значение с дополнительным
