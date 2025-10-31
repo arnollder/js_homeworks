@@ -120,28 +120,31 @@ console.log(capitalize("каждое слово с заглавной буквы
 // =============================================================
 
 // С помощью методов
-changeRegister = (str) => {
-    result = [];
-    for (i of str) {
-        i === i.toUpperCase() ? result.push(i.toLowerCase()) : result.push(i.toUpperCase());
-    }
-    return result.join("");
-};
-console.log(changeRegister("КаЖдЫй ОхОтНиК"));
+{
+    const changeRegister = (str) => {
+        result = [];
+        for (i of str) {
+            i === i.toUpperCase() ? result.push(i.toLowerCase()) : result.push(i.toUpperCase());
+        }
+        return result.join("");
+    };
+    console.log(changeRegister("КаЖдЫй ОхОтНиК"));
+}
 
 // С помощью определения кодов символов
-
-changeRegister = (str) => {
-    result = [];
-
-    for (i of str) {
-        i.charCodeAt() >= 1040 && i.charCodeAt() <= 1071
-            ? result.push(String.fromCharCode(i.charCodeAt() + 32))
-            : result.push(String.fromCharCode(i.charCodeAt() - 32));
-    }
-    return result.join("");
-};
-console.log(changeRegister("КаЖдЫй ОхОтНиК"));
+{
+    const changeRegister = (str) => {
+        result = [];
+    
+        for (i of str) {
+            i.charCodeAt() >= 1040 && i.charCodeAt() <= 1071
+                ? result.push(String.fromCharCode(i.charCodeAt() + 32))
+                : result.push(String.fromCharCode(i.charCodeAt() - 32));
+        }
+        return result.join("");
+    };
+    console.log(changeRegister("КаЖдЫй ОхОтНиК"));
+}
 
 // =============================================================
 // 7. Напишите функцию removeChar(str), которая возвращает
