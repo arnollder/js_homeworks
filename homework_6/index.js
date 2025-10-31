@@ -129,6 +129,20 @@ changeRegister = (str) => {
 };
 console.log(changeRegister("КаЖдЫй ОхОтНиК"));
 
+// С помощью определения кодов символов
+
+changeRegister = (str) => {
+    result = [];
+
+    for (i of str) {
+        i.charCodeAt() >= 1040 && i.charCodeAt() <= 1071
+            ? result.push(String.fromCharCode(i.charCodeAt() + 32))
+            : result.push(String.fromCharCode(i.charCodeAt() - 32));
+    }
+    return result.join("");
+};
+console.log(changeRegister("КаЖдЫй ОхОтНиК"));
+
 // =============================================================
 // 7. Напишите функцию removeChar(str), которая возвращает
 // строку, очищенную от всех не буквенно-цифровых символов.
