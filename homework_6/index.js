@@ -121,10 +121,13 @@ console.log(capitalize("каждое слово с заглавной буквы
 
 // С помощью методов
 {
+    // чекаем регистр
+    const isUpperCase = (char) => char === char.toUpperCase() ? true : false
+    // основная функция
     const changeRegister = (str) => {
-        result = [];
-        for (i of str) {
-            i === i.toUpperCase() ? result.push(i.toLowerCase()) : result.push(i.toUpperCase());
+        let result = [];
+        for (char of str) {
+            isUpperCase(char) ? result.push(char.toLowerCase()) : result.push(char.toUpperCase());
         }
         return result.join("");
     };
@@ -133,13 +136,15 @@ console.log(capitalize("каждое слово с заглавной буквы
 
 // С помощью определения кодов символов
 {
+    // чекаем регистр
+    const isUpperCase = (char) => (char.charCodeAt() >= 1040 && char.charCodeAt() <= 1071) ? true : false
+    // основная функция
     const changeRegister = (str) => {
-        result = [];
-    
-        for (i of str) {
-            i.charCodeAt() >= 1040 && i.charCodeAt() <= 1071
-                ? result.push(String.fromCharCode(i.charCodeAt() + 32))
-                : result.push(String.fromCharCode(i.charCodeAt() - 32));
+        let result = [];
+        for (char of str) {
+            isUpperCase(char)
+                ? result.push(String.fromCharCode(char.charCodeAt() + 32))
+                : result.push(String.fromCharCode(char.charCodeAt() - 32));
         }
         return result.join("");
     };
