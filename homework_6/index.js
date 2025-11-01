@@ -122,7 +122,7 @@ console.log(capitalize("каждое слово с заглавной буквы
 // С помощью методов
 {
     // чекаем регистр
-    const isUpperCase = (char) => char === char.toUpperCase() ? true : false
+    const isUpperCase = (char) => (char === char.toUpperCase() ? true : false);
     // основная функция
     const changeRegister = (str) => {
         let result = [];
@@ -137,7 +137,8 @@ console.log(capitalize("каждое слово с заглавной буквы
 // С помощью определения кодов символов
 {
     // чекаем регистр
-    const isUpperCase = (char) => (char.charCodeAt() >= 1040 && char.charCodeAt() <= 1071) ? true : false
+    const isUpperCase = (char) =>
+        char.charCodeAt() >= 1040 && char.charCodeAt() <= 1071 ? true : false;
     // основная функция
     const changeRegister = (str) => {
         let result = [];
@@ -174,20 +175,23 @@ console.log(capitalize("каждое слово с заглавной буквы
 // строку, очищенную от всех не буквенно-цифровых символов.
 // =============================================================
 
-const checkChar = char => {
-    const regex = new RegExp(/^[\p{L}\p{N}]/u)
-    console.log(regex.test(char))
-    return regex.test(char)
-}
+// Регулярное выражение
+{
+    const checkChar = (char) => {
+        const regex = new RegExp(/[\p{L}\p{N}]/u);
+        console.log(regex.test(char));
+        return regex.test(char);
+    };
 
-const removeChar = (str) => {
-    let result = []
-    for (char of str) {
-        checkChar(char) ? result.push(char) : false
-    }
-    return result.join('')
+    const removeChar = (str) => {
+        let result = [];
+        for (char of str) {
+            checkChar(char) ? result.push(char) : false;
+        }
+        return result.join("");
+    };
+    console.log(removeChar("Эта_строка_о-ч-и-щ!е???на от $$$вССсего-лишнего..152."));
 }
-console.log(removeChar('Эта_строка_о-ч-и-щ!е???на от $$$вССсего-лишнего..152.'))
 
 // =============================================================
 // 8. Напишите функцию zeros(num, len), которая дополняет нулями
@@ -195,6 +199,23 @@ console.log(removeChar('Эта_строка_о-ч-и-щ!е???на от $$$вСС
 // знаком «+» или «-» в зависимости от передаваемого
 // аргумента.
 // =============================================================
+
+const checkPositivity = (num) => {
+    if (num == 0) {
+        return String("0");
+    }
+    return num > 0 ? String("+") : String("-");
+};
+
+const zeros = (num, len) => {
+    let result = [checkPositivity(num)];
+    for (i = 0; i < len - 2; i++) {
+        result.push(0);
+    }
+    result.push(Math.abs(num));
+    return result.join("");
+};
+console.log(zeros(5, 3));
 
 // =============================================================
 // 9. Напишите функцию comparison(str1, str2), которая сравнивает
