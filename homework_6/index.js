@@ -225,18 +225,18 @@ console.log(zeros(5, 3));
 // Самое очевидное решение через приведение к единому регистру
 {
     const comparison = (str1, str2) => {
-        return str1.toLowerCase() === str2.toLowerCase() ? true : false
-    }
-    console.log(comparison('СРАВНИВАЕМ СТРОКИ', 'сравниваем строки'))
+        return str1.toLowerCase() === str2.toLowerCase() ? true : false;
+    };
+    console.log(comparison("СРАВНИВАЕМ СТРОКИ", "сравниваем строки"));
 }
 
 // Регулярное выражение
 {
     const comparison = (str1, str2) => {
-        const regex = new RegExp(`^${str1}$`, "i")
-        return regex.test(str2)
-    }
-    console.log(comparison('СРАВНИВАЕМ СТРОКИ', 'сравниваем строки'))
+        const regex = new RegExp(`^${str1}$`, "i");
+        return regex.test(str2);
+    };
+    console.log(comparison("СРАВНИВАЕМ СТРОКИ", "сравниваем строки"));
 }
 
 // =============================================================
@@ -244,6 +244,22 @@ console.log(zeros(5, 3));
 // осуществляет поиск подстроки str2 в строке str1 без учёта
 // регистра символов.
 // =============================================================
+console.log("// ======================================================");
+
+// Метод includes с приведением к общему регистру
+{
+    const insensitiveSearch = (str1, str2) => {
+        return str1.toLowerCase().includes(str2.toLowerCase());
+    };
+    console.log(insensitiveSearch("ПоИСК подстроки", "пОиск"));
+}
+
+// Регулярное выражение
+const insensitiveSearch = (str1, str2) => {
+    const regex = new RegExp(`${str2}`, "i");
+    return str1.match(regex) ? true : false
+};
+console.log(insensitiveSearch("ПоиСКк подстроки", "пОиск"));
 
 // =============================================================
 // 11. Напишите функцию initCap(str), которая преобразует стиль
