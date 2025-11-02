@@ -224,9 +224,7 @@ console.log(zeros(5, 3));
 
 // Самое очевидное решение через приведение к единому регистру
 {
-    const comparison = (str1, str2) => {
-        return str1.toLowerCase() === str2.toLowerCase() ? true : false;
-    };
+    const comparison = (str1, str2) => str1.toLowerCase() === str2.toLowerCase() ? true : false;
     console.log(comparison("СРАВНИВАЕМ СТРОКИ", "сравниваем строки"));
 }
 
@@ -244,22 +242,22 @@ console.log(zeros(5, 3));
 // осуществляет поиск подстроки str2 в строке str1 без учёта
 // регистра символов.
 // =============================================================
-console.log("// ======================================================");
 
 // Метод includes с приведением к общему регистру
 {
-    const insensitiveSearch = (str1, str2) => {
-        return str1.toLowerCase().includes(str2.toLowerCase());
-    };
+    const insensitiveSearch = (str1, str2) => str1.toLowerCase().includes(str2.toLowerCase());
+
     console.log(insensitiveSearch("ПоИСК подстроки", "пОиск"));
 }
 
 // Регулярное выражение
-const insensitiveSearch = (str1, str2) => {
-    const regex = new RegExp(`${str2}`, "i");
-    return str1.match(regex) ? true : false
-};
-console.log(insensitiveSearch("ПоиСКк подстроки", "пОиск"));
+{
+    const insensitiveSearch = (str1, str2) => {
+        const regex = new RegExp(`${str2}`, "i");
+        return str1.match(regex) ? true : false;
+    };
+    console.log(insensitiveSearch("ПоиСКк подстроки", "пОиск"));
+}
 
 // =============================================================
 // 11. Напишите функцию initCap(str), которая преобразует стиль
@@ -267,6 +265,19 @@ console.log(insensitiveSearch("ПоиСКк подстроки", "пОиск"));
 // несколько слов пишутся слитно без пробелов, при этом каждое
 // слово внутри строки пишется с заглавной буквы.
 // =============================================================
+
+// Воспользуемся ранее написанными функциями: 
+//      stringToArray(): Преобразует строку в массив слов
+//      firstSymbToUpperCase(): Преобразует регистр первого символа строки из нижнего регистра в верхний
+
+const initCap = (str) => {
+    let result = []
+    for (element of stringToArray(str)) {
+        result.push(firstSymbToUpperCase(element))
+    }
+    return result.join('')
+}
+console.log(initCap('it is camel case style'))
 
 // =============================================================
 // 12. Напишите функцию initSnake(str), которая преобразует
@@ -279,6 +290,9 @@ console.log(insensitiveSearch("ПоиСКк подстроки", "пОиск"));
 // =============================================================
 // 13. Напишите функцию repeatStr(str, n), которая возвращает
 // строку повторяемую определённое количество раз.
+// =============================================================
+
+// =============================================================
 // 14. Напишите функцию path(pathname), которая возвращает
 // имя файла (подстрока после последнего символа "\" ) из
 // полного пути к файлу.
