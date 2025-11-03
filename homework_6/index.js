@@ -224,7 +224,7 @@ console.log(zeros(5, 3));
 
 // Самое очевидное решение через приведение к единому регистру
 {
-    const comparison = (str1, str2) => str1.toLowerCase() === str2.toLowerCase() ? true : false;
+    const comparison = (str1, str2) => (str1.toLowerCase() === str2.toLowerCase() ? true : false);
     console.log(comparison("СРАВНИВАЕМ СТРОКИ", "сравниваем строки"));
 }
 
@@ -266,18 +266,13 @@ console.log(zeros(5, 3));
 // слово внутри строки пишется с заглавной буквы.
 // =============================================================
 
-// Воспользуемся ранее написанными функциями: 
+// Воспользуемся ранее написанными функциями:
 //      stringToArray(): Преобразует строку в массив слов
 //      firstSymbToUpperCase(): Преобразует регистр первого символа строки из нижнего регистра в верхний
+//      capitalize(str): Возвращает строку, в которой каждое слово начинается с заглавной буквы
 
-const initCap = (str) => {
-    let result = []
-    for (element of stringToArray(str)) {
-        result.push(firstSymbToUpperCase(element))
-    }
-    return result.join('')
-}
-console.log(initCap('it is camel case style'))
+const initCap = (str) => stringToArray(capitalize(str)).join('')
+console.log(initCap("it is camel case style"));
 
 // =============================================================
 // 12. Напишите функцию initSnake(str), которая преобразует
