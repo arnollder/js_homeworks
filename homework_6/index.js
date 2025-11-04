@@ -271,7 +271,7 @@ console.log(zeros(5, 3));
 //      firstSymbToUpperCase(): Преобразует регистр первого символа строки из нижнего регистра в верхний
 //      capitalize(str): Возвращает строку, в которой каждое слово начинается с заглавной буквы
 
-const initCap = (str) => stringToArray(capitalize(str)).join('')
+const initCap = (str) => stringToArray(capitalize(str)).join("");
 console.log(initCap("it is camel case style"));
 
 // =============================================================
@@ -281,6 +281,39 @@ console.log(initCap("it is camel case style"));
 // символом подчеркивания (_), причём каждое слово пишется с
 // маленькой буквы.
 // =============================================================
+
+{
+    const initSnake = (str) => {
+        let tempString = '';
+        for (char of str.slice(1)) {
+            if (char === char.toLowerCase()) {
+                tempString = tempString + char;
+            } else {
+                tempString = tempString + '_' + char.toLowerCase()
+            }
+        }
+        return str[0].toLowerCase() + tempString
+    }
+    console.log(initSnake('SnakeCaseVersion-1'))
+}
+
+{
+    const initSnake = (str) => {
+        let tempList = []
+        let tempString = '';
+        for (char of str.slice(1)) {
+            if (char === char.toLowerCase()) {
+                tempString = tempString + char;
+            } else {
+                tempList.push(tempString)
+                tempString = char.toLowerCase()
+            }
+        }
+        tempList.push(tempString)
+        return str[0].toLowerCase() + tempList.join('_')
+    }
+    console.log(initSnake('SnakeCaseVersion-2'))
+}
 
 // =============================================================
 // 13. Напишите функцию repeatStr(str, n), которая возвращает
@@ -336,4 +369,4 @@ console.log(initCap("it is camel case style"));
 // =============================================================
 // 22. Напишите функцию findWord(word, str), которая проверяет,
 // существует ли в строке str слова word.
-// =============================================================
+// ============================================================
