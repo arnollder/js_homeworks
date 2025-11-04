@@ -268,7 +268,6 @@ console.log(zeros(5, 3));
 
 // Воспользуемся ранее написанными функциями:
 //      stringToArray(): Преобразует строку в массив слов
-//      firstSymbToUpperCase(): Преобразует регистр первого символа строки из нижнего регистра в верхний
 //      capitalize(str): Возвращает строку, в которой каждое слово начинается с заглавной буквы
 
 const initCap = (str) => stringToArray(capitalize(str)).join("");
@@ -376,14 +375,29 @@ console.log(initCap("it is camel case style"));
 const endsWith = (str, str1) => {
     const regex = new RegExp(`${str}$`, "i");
     return regex.test(str1);
-}
-console.log(endsWith('строки', 'окончание строки'))
+};
+console.log(endsWith("строки", "окончание строки"));
 
 // =============================================================
 // 16. Напишите функцию getSubstr(str, char, pos), которая
 // возвращает часть строки, расположенную после или до
 // указанного символа char в зависимости от параметра pos.
 // =============================================================
+
+const getSubstr = (str, char, pos) => {
+    let result
+    if (pos == "до") {
+        result = str.substr(0, char);
+    } else if (pos == "после") {
+        result = str.substr(char);
+    } else {
+        result = `Неверный аргумент: ${pos}`
+    }
+    return result
+};
+console.log(getSubstr('Обрезать строку до указанного символа', 18, 'до'))
+console.log(getSubstr('Обрезать строку после', 9, 'после'))
+console.log(getSubstr('Обрезать строку', 13, 'парампампам'))
 
 // =============================================================
 // 17. Напишите функцию insert(str, substr, pos), которая вставляет
