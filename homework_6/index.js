@@ -353,17 +353,16 @@ console.log(initCap("it is camel case style"));
 {
     const path = (pathname) => {
         pathnameReverse = pathname.split("").reverse().join("");
-        let tempString = '';
+        let tempString = "";
         console.log(pathnameReverse);
         for (char of pathnameReverse) {
-            if (char != '\\') {
-                tempString += char
+            if (char != "\\") {
+                tempString += char;
             } else {
                 return tempString.split("").reverse().join("");
             }
         }
         return tempString.split("").reverse().join("");
-    
     };
     console.log(path("home\\arnold\\soft\\gtc"));
 }
@@ -374,7 +373,11 @@ console.log(initCap("it is camel case style"));
 // заканчивается ли строка символами подстроки.
 // =============================================================
 
-
+const endsWith = (str, str1) => {
+    const regex = new RegExp(`${str}$`, "i");
+    return regex.test(str1);
+}
+console.log(endsWith('строки', 'окончание строки'))
 
 // =============================================================
 // 16. Напишите функцию getSubstr(str, char, pos), которая
