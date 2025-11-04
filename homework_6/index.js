@@ -285,9 +285,9 @@ console.log(initCap("it is camel case style"));
 {
     const initSnake = (str) => {
         let tempString = "";
-        for (char of str.slice(1)) {
+        for (let char of str.slice(1)) {
             if (char === char.toLowerCase()) {
-                tempString = tempString + char;
+                tempString += char;
             } else {
                 tempString = tempString + "_" + char.toLowerCase();
             }
@@ -301,9 +301,9 @@ console.log(initCap("it is camel case style"));
     const initSnake = (str) => {
         let tempList = [];
         let tempString = "";
-        for (char of str.slice(1)) {
+        for (let char of str.slice(1)) {
             if (char === char.toLowerCase()) {
-                tempString = tempString + char;
+                tempString += char;
             } else {
                 tempList.push(tempString);
                 tempString = char.toLowerCase();
@@ -335,15 +335,14 @@ console.log(initCap("it is camel case style"));
 // Цикл for
 {
     const repeatStr = (str, n) => {
-        result = ''
+        result = "";
         for (let i = 0; i < n; i++) {
-            result += str
+            result += str;
         }
-        return result
-    }
+        return result;
+    };
     console.log(repeatStr("1", 3));
 }
-
 
 // =============================================================
 // 14. Напишите функцию path(pathname), которая возвращает
@@ -351,11 +350,31 @@ console.log(initCap("it is camel case style"));
 // полного пути к файлу.
 // =============================================================
 
+{
+    const path = (pathname) => {
+        pathnameReverse = pathname.split("").reverse().join("");
+        let tempString = '';
+        console.log(pathnameReverse);
+        for (char of pathnameReverse) {
+            if (char != '\\') {
+                tempString += char
+            } else {
+                return tempString.split("").reverse().join("");
+            }
+        }
+        return tempString.split("").reverse().join("");
+    
+    };
+    console.log(path("home\\arnold\\soft\\gtc"));
+}
+
 // =============================================================
 // 15. Создайте функцию endsWith(), который сравнивает
 // подстроку str1 с окончанием исходной строки str и определяет
 // заканчивается ли строка символами подстроки.
 // =============================================================
+
+
 
 // =============================================================
 // 16. Напишите функцию getSubstr(str, char, pos), которая
