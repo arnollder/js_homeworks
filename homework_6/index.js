@@ -284,41 +284,66 @@ console.log(initCap("it is camel case style"));
 
 {
     const initSnake = (str) => {
-        let tempString = '';
+        let tempString = "";
         for (char of str.slice(1)) {
             if (char === char.toLowerCase()) {
                 tempString = tempString + char;
             } else {
-                tempString = tempString + '_' + char.toLowerCase()
+                tempString = tempString + "_" + char.toLowerCase();
             }
         }
-        return str[0].toLowerCase() + tempString
-    }
-    console.log(initSnake('SnakeCaseVersion-1'))
+        return str[0].toLowerCase() + tempString;
+    };
+    console.log(initSnake("SnakeCaseVersion-1"));
 }
 
 {
     const initSnake = (str) => {
-        let tempList = []
-        let tempString = '';
+        let tempList = [];
+        let tempString = "";
         for (char of str.slice(1)) {
             if (char === char.toLowerCase()) {
                 tempString = tempString + char;
             } else {
-                tempList.push(tempString)
-                tempString = char.toLowerCase()
+                tempList.push(tempString);
+                tempString = char.toLowerCase();
             }
         }
-        tempList.push(tempString)
-        return str[0].toLowerCase() + tempList.join('_')
-    }
-    console.log(initSnake('SnakeCaseVersion-2'))
+        tempList.push(tempString);
+        return str[0].toLowerCase() + tempList.join("_");
+    };
+    console.log(initSnake("SnakeCaseVersion-2"));
 }
 
 // =============================================================
 // 13. Напишите функцию repeatStr(str, n), которая возвращает
 // строку повторяемую определённое количество раз.
 // =============================================================
+
+// Метод .repeat()
+{
+    const repeatStr = (str, n) => str.repeat(n);
+    console.log(repeatStr("1", 3));
+}
+
+// Работа с массивом
+{
+    const repeatStr = (str, n) => Array(n).fill(str).join("");
+    console.log(repeatStr("1", 3));
+}
+
+// Цикл for
+{
+    const repeatStr = (str, n) => {
+        result = ''
+        for (let i = 0; i < n; i++) {
+            result += str
+        }
+        return result
+    }
+    console.log(repeatStr("1", 3));
+}
+
 
 // =============================================================
 // 14. Напишите функцию path(pathname), которая возвращает
