@@ -385,25 +385,30 @@ console.log(endsWith("строки", "окончание строки"));
 // =============================================================
 
 const getSubstr = (str, char, pos) => {
-    let result
+    let result;
     if (pos == "до") {
         result = str.substr(0, char);
     } else if (pos == "после") {
         result = str.substr(char);
     } else {
-        result = `Неверный аргумент: ${pos}`
+        result = `Неверный аргумент: ${pos}`;
     }
-    return result
+    return result;
 };
-console.log(getSubstr('Обрезать строку до указанного символа', 18, 'до'))
-console.log(getSubstr('Обрезать строку после', 9, 'после'))
-console.log(getSubstr('Обрезать строку', 13, 'парампампам'))
+console.log(getSubstr("Обрезать строку до указанного символа", 18, "до"));
+console.log(getSubstr("Обрезать строку после", 9, "после"));
+console.log(getSubstr("Обрезать строку", 13, "парампампам"));
 
 // =============================================================
 // 17. Напишите функцию insert(str, substr, pos), которая вставляет
 // подстроку substr в указанную позицию pos строки str. По
 // умолчанию подстрока вставляется в начало строки.
 // =============================================================
+
+{
+    const insert = (str, substr, pos) => str.substring(0, pos) + substr + ' ' + str.substring(pos);
+    console.log(insert("Вставить сюда", "подстроку", 9));
+}
 
 // =============================================================
 // 18. Напишите функцию limitStr(str, n, symb), которая обрезает
