@@ -423,13 +423,27 @@ console.log(limitStr("Очень длинная строка", 12));
 // возвращает количество символов stringsearch в строке str.
 // =============================================================
 
-const count = (str, stringsearch) => stringsearch.length ? str.split(stringsearch).length - 1 : 0;
+const count = (str, stringsearch) => (stringsearch.length ? str.split(stringsearch).length - 1 : 0);
 console.log(count("паранойя", "а"));
 
 // =============================================================
 // 20. Напишите функцию strip(str), которая удаляет все лишние
 // пробелы из строки str.
 // =============================================================
+
+// const strip = (str) => str.trim()
+// console.log(strip(' удаляем    лишние пробелы   '))
+
+{
+    const strip = (str) => {
+        result = [];
+        for (i of stringToArray(str)) {
+            i.length ? result.push(i) : false;
+        }
+        return result.join(" ");
+    };
+    console.log(strip(" удаляем    лишние пробелы   "));
+}
 
 // =============================================================
 // 21. Напишите функцию cutString(str, n), которая удаляет лишние
