@@ -38,10 +38,8 @@ console.log(stringToArray("новый массив"));
 // символов.
 // =============================================================
 
-
 const deleteCharacters = (str, length) => str.slice(0, length);
 console.log(deleteCharacters("Это очень длинный текст, который нужно обрезать", 23));
-
 
 // =============================================================
 // 3. Напишите функцию insertDash(str), которая принимает строку
@@ -406,7 +404,7 @@ console.log(getSubstr("Обрезать строку", 13, "парампампа
 // =============================================================
 
 {
-    const insert = (str, substr, pos) => str.substring(0, pos) + substr + ' ' + str.substring(pos);
+    const insert = (str, substr, pos) => str.substring(0, pos) + substr + " " + str.substring(pos);
     console.log(insert("Вставить сюда", "подстроку", 9));
 }
 
@@ -417,13 +415,16 @@ console.log(getSubstr("Обрезать строку", 13, "парампампа
 // (если не задан параметр symb) или заданным символом symb.
 // =============================================================
 
-const limitStr = (str, n, symb='...') => str.length > n ? deleteCharacters(str, n) + symb : str
-console.log(limitStr('Очень длинная строка', 12))
+const limitStr = (str, n, symb = "...") => (str.length > n ? deleteCharacters(str, n) + symb : str);
+console.log(limitStr("Очень длинная строка", 12));
 
 // =============================================================
 // 19. Напишите функцию count(str, stringsearch), которая
 // возвращает количество символов stringsearch в строке str.
 // =============================================================
+
+const count = (str, stringsearch) => stringsearch.length ? str.split(stringsearch).length - 1 : 0;
+console.log(count("паранойя", "а"));
 
 // =============================================================
 // 20. Напишите функцию strip(str), которая удаляет все лишние
