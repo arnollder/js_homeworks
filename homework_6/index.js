@@ -221,10 +221,9 @@ console.log(zeros(5, 3));
 // =============================================================
 
 // Самое очевидное решение через приведение к единому регистру
-{
-    const comparison = (str1, str2) => (str1.toLowerCase() === str2.toLowerCase() ? true : false);
-    console.log(comparison("СРАВНИВАЕМ СТРОКИ", "сравниваем строки"));
-}
+
+const comparison = (str1, str2) => (str1.toLowerCase() === str2.toLowerCase() ? true : false);
+console.log(comparison("СРАВНИВАЕМ СТРОКИ", "сравниваем строки"));
 
 // Регулярное выражение
 {
@@ -457,3 +456,13 @@ console.log(cutString("обрезаем строку от лишних слов"
 // 22. Напишите функцию findWord(word, str), которая проверяет,
 // существует ли в строке str слова word.
 // ============================================================
+
+const findWord = (word, str) => {
+    for (i of str.split(" ")) {
+        if (comparison(i, word)) {
+            return true;
+        }
+    }
+    return false;
+};
+console.log(findWord("искомое", "строка, в которой потенциально есть искомое слово"));
