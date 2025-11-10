@@ -2,7 +2,7 @@
 // массива строк новый массив, содержащий их длины.
 
 const sourceArray = ["исходный", "массив", "строк"];
-const newArray = sourceArray.map((el) => el.length)
+const newArray = sourceArray.map((el) => el.length);
 console.log(newArray);
 
 // 2. Имеется массив простых чисел: numbers = [2, 3, 5, 7, 11, 13, 17,
@@ -11,6 +11,19 @@ console.log(newArray);
 // такого же числа элементов, в котором на каждой позиции
 // будет находиться сумма элементов массива numbers до этой
 // позиции включительно.
+
+const currentSums = (numbers) => {
+    let sum = 0;
+    tempList = [];
+    numbers.reduce((acc, value) => {
+        sum += value;
+        tempList.push(sum);
+    }, []);
+    return tempList;
+};
+
+numbers = [2, 3, 5, 7, 11, 13, 17, 19];
+console.log(currentSums(numbers));
 
 // 3. Напишите код, который получает из массива чисел новый
 // массив, содержащий пары чисел, которые в сумме должны
