@@ -91,14 +91,29 @@ console.log(twoDimensional.flat(Infinity).reduce((acc, val) => acc + val));
 // 9. Дан массив с числами. Не используя метода reverse
 // переверните его элементы в обратном порядке.
 
-const reverseArray = (arr) =>
-    arr
-        .map((el) => el.toString())
-        .reduceRight((acc, val) => acc + val)
-        .split("")
-        .map((el) => Number(el));
+// const reverseArray = (arr) =>
+//     arr
+//         // .map((el) => el.toString())
+//         .reduceRight((acc, val) => acc + val, [])
+//         .split("")
+//         .map((el) => Number(el));
+
+// console.log(reverseArray([12, 5, 8, 7, 3, 5, 1]));
+
+const reverseArray = (arr) => {
+    result = [];
+    for (let i = arr.length - 1; i >= 0; i--) {
+        result.push(arr[i]);
+    }
+    return result;
+};
 
 console.log(reverseArray([12, 5, 8, 7, 3, 5, 1]));
+
+{
+    const reverseArray = (arr) => arr.toReversed();
+    console.log(reverseArray([12, 5, 8, 7, 3, 5, 1]));
+}
 
 // 10. Дан массив с числами. Узнайте сколько элементов с начала
 // массива надо сложить, чтобы в сумме получилось больше
