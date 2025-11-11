@@ -29,6 +29,21 @@ console.log(currentSums(numbers));
 // массив, содержащий пары чисел, которые в сумме должны
 // быть равны семи: (0:7), (1:6) и т.д.
 
+// метод forEach()
+{
+    const sevenFunc = (sourceArray) => {
+        const newArray = [];
+        sourceArray.forEach((el) => newArray.push([el, 7 - el]));
+        return newArray;
+    };
+    console.log(sevenFunc([0, 4, 3, 7, 15, 112]));
+}
+// метод map()
+{
+    const sevenFunc = (sourceArray) => sourceArray.map((el) => [el, 7 - el]);
+    console.log(sevenFunc([0, 4, 3, 7, 15, 112]));
+}
+
 // 4. Напишите код, создающий массив, который будет состоять из
 // первых букв слов строки str.
 
@@ -50,6 +65,7 @@ console.log(currentSums(numbers));
 
 // 9. Дан массив с числами. Не используя метода reverse
 // переверните его элементы в обратном порядке.
+
 // 10. Дан массив с числами. Узнайте сколько элементов с начала
 // массива надо сложить, чтобы в сумме получилось больше
 // 10-ти.
