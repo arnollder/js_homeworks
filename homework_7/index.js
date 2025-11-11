@@ -54,25 +54,28 @@ console.log(firstChar("первые буквы этой строки"));
 // строк, состоящих из предыдущего, текущего и следующего
 // символа строки str.
 
-const threeChar = (str) => {
-    strArr = str.split("");
-    return strArr.map((el, i) => {
-        if (i === 0) {
-            return strArr[i] + strArr[i + 1];
-        } else if (i == strArr.length - 1) {
-            return strArr[i - 1] + strArr[i];
-        } else {
-            return strArr[i - 1] + strArr[i] + strArr[i + 1];
-        }
-    });
-};
-console.log(threeChar("жестоко!!"));
+{
+    const threeChar = (str) => {
+        strArr = str.split("");
+        return strArr.map((el, i) => {
+            if (i === 0) {
+                return strArr[i] + strArr[i + 1];
+            } else if (i == strArr.length - 1) {
+                return strArr[i - 1] + strArr[i];
+            } else {
+                return strArr[i - 1] + strArr[i] + strArr[i + 1];
+            }
+        });
+    };
+    console.log(threeChar("жестоко!!"));
+}
 
 // 6. Напишите код, преобразующий массив цифр, которые
 // располагаются неупорядоченно, в массив цифр
 // расположенных по убыванию их значений.
 
-
+const unorderedArray = [12, 5, 8, 7, 3, 5, 1];
+console.log();
 
 // 7. Напишите код, объединяющий три массива цифр, и
 // располагающий цифры, в полученном массиве, в порядке
@@ -87,6 +90,15 @@ console.log(twoDimensional.flat(Infinity).reduce((acc, val) => acc + val));
 
 // 9. Дан массив с числами. Не используя метода reverse
 // переверните его элементы в обратном порядке.
+
+const reverseArray = (arr) =>
+    arr
+        .map((el) => el.toString())
+        .reduceRight((acc, val) => acc + val)
+        .split("")
+        .map((el) => Number(el));
+
+console.log(reverseArray([12, 5, 8, 7, 3, 5, 1]));
 
 // 10. Дан массив с числами. Узнайте сколько элементов с начала
 // массива надо сложить, чтобы в сумме получилось больше
