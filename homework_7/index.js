@@ -74,8 +74,8 @@ console.log(firstChar("первые буквы этой строки"));
 // располагаются неупорядоченно, в массив цифр
 // расположенных по убыванию их значений.
 
-const unorderedArray = [12, 5, 8, 7, 3, 5, 1];
-console.log();
+const unorderedArray = [12, 5, 8, 7, 3, 5, 1, 22];
+console.log(unorderedArray.sort((a, b) => b - a));
 
 // 7. Напишите код, объединяющий три массива цифр, и
 // располагающий цифры, в полученном массиве, в порядке
@@ -110,10 +110,10 @@ const reverseArray = (arr) => {
 
 console.log(reverseArray([12, 5, 8, 7, 3, 5, 1]));
 
-{
-    const reverseArray = (arr) => arr.toReversed();
-    console.log(reverseArray([12, 5, 8, 7, 3, 5, 1]));
-}
+// {
+//     const reverseArray = (arr) => arr.toReversed();
+//     console.log(reverseArray([12, 5, 8, 7, 3, 5, 1]));
+// }
 
 // 10. Дан массив с числами. Узнайте сколько элементов с начала
 // массива надо сложить, чтобы в сумме получилось больше
