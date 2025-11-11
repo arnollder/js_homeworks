@@ -54,6 +54,20 @@ console.log(firstChar("первые буквы этой строки"));
 // строк, состоящих из предыдущего, текущего и следующего
 // символа строки str.
 
+const threeChar = (str) => {
+    strArr = str.split("");
+    return strArr.map((el, i) => {
+        if (i === 0) {
+            return strArr[i] + strArr[i + 1];
+        } else if (i == strArr.length - 1) {
+            return strArr[i - 1] + strArr[i];
+        } else {
+            return strArr[i - 1] + strArr[i] + strArr[i + 1];
+        }
+    });
+};
+console.log(threeChar("жестоко!!"));
+
 // 6. Напишите код, преобразующий массив цифр, которые
 // располагаются неупорядоченно, в массив цифр
 // расположенных по убыванию их значений.
