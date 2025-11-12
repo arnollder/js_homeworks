@@ -81,14 +81,14 @@ console.log(unorderedArray.sort((a, b) => b - a));
 // располагающий цифры, в полученном массиве, в порядке
 // убывания их значений через пробел.
 
-const unitedSortedArrs = (...args) => {
+const unitedSortedArs = (...args) => {
     return [...args].sort((a, b) => b - a);
-}
+};
 
 const arr1 = [3, 5, 1, 22];
-const arr2 = [5, 8, 7,];
+const arr2 = [5, 8, 7];
 const arr3 = [12, 33, 37];
-console.log(unitedSortedArrs(arr1, arr2, arr3));
+console.log(unitedSortedArs(arr1, arr2, arr3));
 
 // 8. Дан двухмерный массив с числами, например [[1, 2, 3], [4, 5],
 // [6]]. Найдите сумму элементов этого массива. Массив, конечно
@@ -100,15 +100,6 @@ console.log(twoDimensional.flat(Infinity).reduce((acc, val) => acc + val));
 // 9. Дан массив с числами. Не используя метода reverse
 // переверните его элементы в обратном порядке.
 
-// const reverseArray = (arr) =>
-//     arr
-//         // .map((el) => el.toString())
-//         .reduceRight((acc, val) => acc + val, [])
-//         .split("")
-//         .map((el) => Number(el));
-
-// console.log(reverseArray([12, 5, 8, 7, 3, 5, 1]));
-
 const reverseArray = (arr) => {
     result = [];
     for (let i = arr.length - 1; i >= 0; i--) {
@@ -119,14 +110,22 @@ const reverseArray = (arr) => {
 
 console.log(reverseArray([12, 5, 8, 7, 3, 5, 1]));
 
-// {
-//     const reverseArray = (arr) => arr.toReversed();
-//     console.log(reverseArray([12, 5, 8, 7, 3, 5, 1]));
-// }
-
 // 10. Дан массив с числами. Узнайте сколько элементов с начала
 // массива надо сложить, чтобы в сумме получилось больше
 // 10-ти.
+
+{
+    const sourceArray = [1, 5, 3, 7, 8, 5, 12];
+    let tempArr = [0];
+    for (let i = 0; i <= sourceArray.length; i++) {
+        if (tempArr.reduce((acc, val) => acc + val) <= 10) {
+            tempArr.push(sourceArray[i]);
+        } else {
+            break;
+        }
+    }
+    console.log(tempArr.length - 1);
+}
 
 // 11. Напишите функцию arrayFill, которая будет заполнять
 // массив заданными значениями. Первым параметром функция
