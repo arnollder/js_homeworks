@@ -132,3 +132,29 @@ console.log(reverseArray([12, 5, 8, 7, 3, 5, 1]));
 // принимает значение, которым заполнять массив, а вторым -
 // сколько элементов должно быть в массиве. Пример:
 // arrayFill('x', 5) сделает массив ['x', 'x', 'x', 'x', 'x'].
+
+{
+    const arrayFill = (value, quantity) => Array(quantity).fill(value);
+    console.log(arrayFill("x", 5));
+}
+
+{
+    const arrayFill = (value, quantity) => Array.from({ length: quantity }, () => value);
+    console.log(arrayFill("x", 5));
+}
+
+{
+    const arrayFill = (value, quantity) => {
+        let result = [];
+        for (let i = 0; i <= quantity - 1; i++) {
+            result.push(value);
+        }
+        return result;
+    };
+    console.log(arrayFill("x", 5));
+}
+
+{
+    const arrayFill = (value, quantity) => [...Array(quantity)].map(() => value);
+    console.log(arrayFill("x", 5));
+}
