@@ -52,7 +52,7 @@
 // };
 // askPassword(user.loginOk, user.loginFail);
 
-// Изначально я подумал на потерю контекста и о том, что нужно доработать функцию askPassword, 
+// Изначально я подумал на потерю контекста и о том, что нужно доработать функцию askPassword,
 // но проверил в браузере GoogleChrome - всё работает и без доработки
 
 // 5. Объект user был изменён. Теперь вместо двух функций
@@ -60,18 +60,19 @@
 // Что нужно передать в вызов функции askPassword в коде
 // ниже, чтобы она могла вызывать функцию user.login(true) как
 // ok и функцию user.login(false) как fail?
+
 // function askPassword(ok, fail) {
-// let password = prompt("Password?", '');
-// if (password == "rockstar") ok();
-// else fail();
+//     let password = prompt("Password?", "");
+//     if (password == "rockstar") ok();
+//     else fail();
 // }
 // let user = {
-// name: 'John',
-// login(result) {
-// alert( this.name + (result ? ' logged in' : ' failed to log in') );
-// }
+//     name: "John",
+//     login(result) {
+//         alert(this.name + (result ? " logged in" : " failed to log in"));
+//     },
 // };
-// askPassword(?, ?);
+// askPassword(user.login.bind(user, true), user.login.bind(user, false));
 
 // 6. Напишите в указанном месте конструкцию с методом bind()
 // так, чтобы this внутри функции func всегда указывал на value.
