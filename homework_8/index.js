@@ -35,21 +35,25 @@
 // проверить пароль и затем вызвать user.loginOk/loginFail в
 // зависимости от ответа.
 // Однако, его вызов приводит к ошибке. Почему?
+
 // function askPassword(ok, fail) {
-// let password = prompt("Password?", '');
-// if (password == "rockstar") ok();
-// else fail();
+//     let password = prompt("Password?", "");
+//     if (password == "rockstar") ok();
+//     else fail();
 // }
 // let user = {
-// name: 'Вася',
-// loginOk() {
-// alert(`${this.name} logged in`);
-// },
-// loginFail() {
-// alert(`${this.name} failed to log in`);
-// },
+//     name: "Вася",
+//     loginOk() {
+//         alert(`${this.name} logged in`);
+//     },
+//     loginFail() {
+//         alert(`${this.name} failed to log in`);
+//     },
 // };
 // askPassword(user.loginOk, user.loginFail);
+
+// Изначально я подумал на потерю контекста и о том, что нужно доработать функцию askPassword, 
+// но проверил в браузере GoogleChrome - всё работает и без доработки
 
 // 5. Объект user был изменён. Теперь вместо двух функций
 // loginOk/loginFail у него есть только одна – user.login(true/false).
@@ -90,5 +94,3 @@
 // завершения. Таймер движется назад.При достижении точки
 // завершения в консоль выводится значение таймера и
 // сообщение о завершении работы таймера.
-
-console.log(3 < 2 ?? 2 < 1);
