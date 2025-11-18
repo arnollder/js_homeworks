@@ -61,18 +61,34 @@
 // ниже, чтобы она могла вызывать функцию user.login(true) как
 // ok и функцию user.login(false) как fail?
 
-// function askPassword(ok, fail) {
-//     let password = prompt("Password?", "");
-//     if (password == "rockstar") ok();
-//     else fail();
-// }
-// let user = {
-//     name: "John",
-//     login(result) {
-//         alert(this.name + (result ? " logged in" : " failed to log in"));
-//     },
-// };
-// askPassword(user.login.bind(user, true), user.login.bind(user, false));
+{
+    function askPassword(ok, fail) {
+        let password = prompt("Password?", "");
+        if (password == "rockstar") ok();
+        else fail();
+    }
+    let user = {
+        name: "John",
+        login(result) {
+            alert(this.name + (result ? " logged in" : " failed to log in"));
+        },
+    };
+    askPassword(user.login.bind(user, true), user.login.bind(user, false));
+}
+
+// оборачиваем в стрелочную функцию во избежание потери контекста
+function askPassword(ok, fail) {
+    let password = prompt("Password?", "");
+    if (password == "rockstar") ok();
+    else fail();
+}
+let user = {
+    name: "John",
+    login(result) {
+        alert(this.name + (result ? " logged in" : " failed to log in"));
+    },
+};
+askPassword(() => user.login(true), user.login(false));
 
 // 6. Напишите в указанном месте конструкцию с методом bind()
 // так, чтобы this внутри функции func всегда указывал на value.
