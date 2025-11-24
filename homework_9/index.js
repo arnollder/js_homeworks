@@ -4,7 +4,7 @@
 // Также класс должен иметь метод getSalary(), который будет
 // выводить зарплату работника. Зарплата - это произведение
 // (умножение) ставки rate на количество отработанных дней
-// days. И метод getFullName() - имя и фамиля работника.
+// days. И метод getFullName() - имя и фамилия работника.
 
 class Worker {
     constructor(name, surname, rate, days) {
@@ -27,13 +27,68 @@ doctor.getFullName();
 doctor.getSalary();
 
 // 2. Напишите новый класс Boss, этот класс наследуется от класса
-// Worker и прошлого задания. Появляется новые свойство:
+// Worker из прошлого задания. Появляется новые свойство:
 // workers - количество работников. И зарплата считается по
 // другому: произведение (умножение) ставки rate на количество
 // отработанных дней и на количество работников.
+
+// Полное наследование класса
+class Boss extends Worker {
+    constructor(name, surname, rate, days, workers) {
+        super(name, surname, rate, days);
+        this.workers = workers;
+        // console.log(rate, days, workers);
+    }
+    getTotalSalary() {
+        console.log(this.rate * this.days * this.workers);
+
+        // console.log('rate:', this.rate, 'days:', this.days, 'workers:', this.workers);
+        // console.log('Types:', typeof this.rate, typeof this.days, typeof this.workers);
+        // console.log(this.rate * this.days * this.workers);
+    }
+}
+
+const boss = new Boss("Ай", "Болит", 2000, 7, 2);
+boss.getTotalSalary();
+
 // 3. Модифицируйте класс Worker из предыдущей задачи
 // следующим образом: для свойства rate и для свойства days
 // сделайте и методы-сеттеры и методы-геттеры для их чтения.
+
+{
+    class Worker {
+        constructor(name, surname, rate, days) {
+            this.name = name;
+            this.surname = surname;
+            this.rate = rate;
+            this.days = days;
+        }
+        getSalary() {
+            console.log(this.rate * this.days);
+        }
+        getFullName() {
+            console.log(this.name + ` ` + this.surname);
+        }
+
+        set rate(value) {
+            this._rate = value
+        }
+        get rate() {
+            return this._rate
+        }
+
+        set days(value) {
+            this._days = value
+        }
+        get days() {
+            return this._days
+        }
+    }
+    
+    const doctor = new Worker("Ай", "Болит", 2000, 7);
+    console.log(doctor.rate, doctor.days)
+}
+
 // 4. Реализуйте класс MyString, который будет иметь следующие
 // методы: метод reverse(), который параметром принимает
 // строку, а возвращает ее в перевернутом виде, метод ucFirst(),
