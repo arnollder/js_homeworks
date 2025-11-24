@@ -71,22 +71,22 @@ boss.getTotalSalary();
         }
 
         set rate(value) {
-            this._rate = value
+            this._rate = value;
         }
         get rate() {
-            return this._rate
+            return this._rate;
         }
 
         set days(value) {
-            this._days = value
+            this._days = value;
         }
         get days() {
-            return this._days
+            return this._days;
         }
     }
-    
+
     const doctor = new Worker("Ай", "Болит", 2000, 7);
-    console.log(doctor.rate, doctor.days)
+    console.log(doctor.rate, doctor.days);
 }
 
 // 4. Реализуйте класс MyString, который будет иметь следующие
@@ -96,6 +96,31 @@ boss.getTotalSalary();
 // строку, сделав ее первую букву заглавной и метод ucWords,
 // который принимает строку и делает заглавной первую букву
 // каждого слова этой строки.
+
+class MyString {
+    constructor(str) {
+        this.str = str;
+    }
+    reverse() {
+        return [...this.str].reverse().join("");
+    }
+    ucFirst() {
+        return this.str.charAt(0).toUpperCase() + this.str.slice(1);
+    }
+    ucWords() {
+        return this.str
+            .toLowerCase()
+            .split(" ")
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(" ");
+    }
+}
+
+const str = new MyString("панама бой");
+console.log(str.reverse());
+console.log(str.ucFirst());
+console.log(str.ucWords());
+
 // 5. Реализуйте класс Validator, который будет проверять строки. К
 // примеру, у него будет метод isEmail параметром принимает
 // строку и проверяет, является ли она корректным емейлом или
