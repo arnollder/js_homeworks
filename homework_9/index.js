@@ -143,7 +143,7 @@ class Validator {
         return dateRegex.test(value);
     }
     isPhone(value) {
-        const cleanPhone = value.replace(/\s/g, '');
+        const cleanPhone = value.replace(/\s/g, "");
         const phoneRegex = /^(\+7|8)?\(?\d{3}\)?\d{3}-?\d{2}-?\d{2}$/;
         return phoneRegex.test(cleanPhone);
     }
@@ -168,3 +168,34 @@ console.log(validator.isPhone("+7 999 777 33 33"));
 // курс студента (от 1 до 5). Курс вычисляется так: нужно от
 // текущего года отнять год поступления в вуз. Текущий год
 // получите самостоятельно с помощью new Date.
+
+class User {
+    constructor(name, surname) {
+        this.name = name;
+        this.surname = surname;
+    }
+    getFullName() {
+        return this.name + " " + this.surname;
+    }
+}
+
+class Student extends User {
+    constructor(name, surname, year) {
+        super(name, surname);
+        this.year = year;
+    }
+    getCourse() {
+        const today = new Date();
+        const currentYear = today.getFullYear();
+        if ((currentYear - this.year) < 1 || (currentYear - this.year) > 5) {
+            return 'Некорректный год поступления'
+        }
+        return currentYear - this.year
+        
+    }
+}
+
+const student = new Student('Илья', 'Морозов', 2022);
+
+console.log(student.getFullName())
+console.log(student.getCourse())
