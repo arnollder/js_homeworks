@@ -2,5 +2,13 @@
     "prettier.useEditorConfig": true,
     "editor.formatOnSave": true,
     "liveServer.settings.port": 5501,
-    "cSpell.words": ["stringsearch", "Symb", "Uppet", "парампампам", "чекаем"]
+    "cSpell.words": [
+        "stringsearch",
+        "Symb",
+        "testexample",
+        "Uppet",
+        "емейлом",
+        "парампампам",
+        "чекаем"
+    ]
 }
