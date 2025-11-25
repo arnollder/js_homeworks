@@ -128,6 +128,34 @@ console.log(str.ucWords());
 // false. Кроме того, класс будет иметь следующие методы: метод
 // isDomain для проверки домена, метод isDate для проверки
 // даты и метод isPhone для проверки телефона.
+
+class Validator {
+    isEmail(value) {
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return emailRegex.test(value);
+    }
+    isDomain(value) {
+        const domainRegex = /^[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(\.[a-zA-Z]{2,})+$/;
+        return domainRegex.test(value);
+    }
+    isDate(value) {
+        const dateRegex = /^(\d{2})\.(\d{2})\.(\d{4})$/;
+        return dateRegex.test(value);
+    }
+    isPhone(value) {
+        const cleanPhone = value.replace(/\s/g, '');
+        const phoneRegex = /^(\+7|8)?\(?\d{3}\)?\d{3}-?\d{2}-?\d{2}$/;
+        return phoneRegex.test(cleanPhone);
+    }
+}
+
+const validator = new Validator();
+
+console.log(validator.isEmail("test@example.com"));
+console.log(validator.isDomain("testexample.cm"));
+console.log(validator.isDate("03.11.1990"));
+console.log(validator.isPhone("+7 999 777 33 33"));
+
 // 6. Реализуйте класс Student (Студент), который будет
 // наследовать от класса User, подобно тому, как это сделано в
 // теоретической части урока. Этот класс должен иметь
