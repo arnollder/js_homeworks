@@ -6,7 +6,7 @@ const input = document.createElement("input");
 const btn = document.createElement("button");
 
 const toDoList = document.createElement("ol");
-// let toDoArr = [];
+let toDoArr = [];
 
 h1.textContent = "To Do List";
 
@@ -30,4 +30,35 @@ toDoAdd.prepend(input);
 toDoAdd.append(btn);
 toDoSection.append(toDoList);
 
-// document.addEventListener
+document.addEventListener('click', () => {
+    document.querySelector('todo-section__btn')
+})
+
+
+
+
+    // <script>
+    //     const textArray = []; // Наш массив
+    //     const addButton = document.getElementById('addButton');
+    //     const textInput = document.getElementById('textInput');
+    //     const resultDiv = document.getElementById('result');
+
+    //     addButton.addEventListener('click', function() {
+    //         const text = textInput.value.trim();
+            
+    //         if (text !== '') {
+    //             textArray.push(text); // Добавляем текст в массив
+    //             textInput.value = ''; // Очищаем поле ввода
+    //             updateDisplay(); // Обновляем отображение
+    //         }
+    //     });
+
+    //     function updateDisplay() {
+    //         resultDiv.innerHTML = `
+    //             <h3>Содержимое массива:</h3>
+    //             <p>${textArray.join(', ')}</p>
+    //             <p>Всего элементов: ${textArray.length}</p>
+    //         `;
+    //     }
+    // </script>
+    
