@@ -49,7 +49,7 @@ addBtn.addEventListener("click", () => {
     }
 
     toDoArr.forEach(toDo => {
-        toDoList.append(`<li>${toDo}</li>`);
+        toDoList.append(toDo);
     });
 
 });
