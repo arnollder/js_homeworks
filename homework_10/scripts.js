@@ -6,6 +6,7 @@ const input = document.createElement("input");
 const btn = document.createElement("button");
 
 let toDoList = document.createElement("ol");
+// let toDoItem = document.createElement("li");
 
 let toDoArr = [];
 
@@ -21,13 +22,10 @@ input.placeholder = "Введите текст...";
 input.name = "input";
 input.id = "textInput";
 
-// btn.classList.add("todo-section__btn");
 btn.id = "addBtn";
 btn.innerText = "add";
 
 document.body.prepend(header, toDoSection);
-
-
 
 header.prepend(h1);
 toDoSection.prepend(toDoAdd);
@@ -45,38 +43,13 @@ addBtn.addEventListener("click", () => {
     if (text != "") {
         toDoArr.push(text);
         textInput.value = "";
-        console.log(toDoArr)
+        console.log(toDoArr);
     }
 
-    toDoArr.forEach(toDo => {
-        toDoList.append(toDo);
+    toDoArr.forEach((toDo) => {
+        toDoArr = [];
+        const toDoItem = document.createElement("li");
+        toDoItem.textContent = toDo;
+        toDoList.append(toDoItem);
     });
-
 });
-
-
-
-// <script>
-//     const textArray = []; // Наш массив
-//     const addButton = document.getElementById('addBtn');
-//     const textInput = document.getElementById('textInput');
-//     const resultDiv = document.getElementById('result');
-
-//     addButton.addEventListener('click', function() {
-//         const text = textInput.value.trim();
-
-//         if (text !== '') {
-//             textArray.push(text); // Добавляем текст в массив
-//             textInput.value = ''; // Очищаем поле ввода
-//             updateDisplay(); // Обновляем отображение
-//         }
-//     });
-
-//     function updateDisplay() {
-//         resultDiv.innerHTML = `
-//             <h3>Содержимое массива:</h3>
-//             <p>${textArray.join(', ')}</p>
-//             <p>Всего элементов: ${textArray.length}</p>
-//         `;
-//     }
-// </script>
