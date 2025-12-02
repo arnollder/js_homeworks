@@ -6,7 +6,6 @@ const input = document.createElement("input");
 const btn = document.createElement("button");
 
 let toDoList = document.createElement("ol");
-let toDoItem = document.createElement("li");
 
 let toDoArr = [];
 
@@ -37,6 +36,8 @@ toDoSection.append(toDoList);
 const addBtn = document.getElementById("addBtn");
 const textInput = document.getElementById("textInput");
 
+
+// Работает без localStorage
 addBtn.addEventListener("click", () => {
     const text = textInput.value.trim();
 
