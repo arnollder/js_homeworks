@@ -6,7 +6,7 @@ const input = document.createElement("input");
 const btn = document.createElement("button");
 
 let toDoList = document.createElement("ol");
-// let toDoItem = document.createElement("li");
+let toDoItem = document.createElement("li");
 
 let toDoArr = [];
 
@@ -48,8 +48,48 @@ addBtn.addEventListener("click", () => {
 
     toDoArr.forEach((toDo) => {
         toDoArr = [];
+
         const toDoItem = document.createElement("li");
         toDoItem.textContent = toDo;
         toDoList.append(toDoItem);
     });
 });
+
+
+// let toDoArr = localStorage.getItem(key);
+// toDoArr.forEach((item) => {
+
+// }
+// )
+
+//     // Получить существующий массив или создать новый
+//     const getArrayFromStorage = (key) => {
+//         const item = localStorage.getItem(key);
+//         return item ? JSON.parse(item) : [];
+//     };
+  
+//     // Добавить новый элемент в массив
+//     const key = 'myArray';
+//     const existingArray = getArrayFromStorage(key);
+//     existingArray.push(text);
+  
+//     // Сохранить обновленный массив
+//     localStorage.setItem(key, JSON.stringify(existingArray));
+//     console.log(existingArray)
+
+//     window.location.reload();
+
+// Object.keys(localStorage).forEach((key) => {
+//     // toDoArr = [];
+//     const toDoItem = document.createElement("li");
+//     toDoItem.textContent = localStorage.getItem(key);
+//     toDoList.append(toDoItem);
+
+// toDoArr.forEach((toDo) => {
+//     // toDoArr = [];
+//     const toDoItem = document.createElement("li");
+//     toDoItem.textContent = toDo;
+//     toDoList.append(toDoItem);
+// });
+
+// });
